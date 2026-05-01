@@ -3,3 +3,6 @@
 obj
 *.db
 bin/
+*.db-shm
+*.db-wal
+*.sqbpro
