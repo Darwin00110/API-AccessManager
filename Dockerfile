@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 COPY . .
 
 RUN dotnet restore ./API-AccessManeger/API-AccessManeger.csproj
-RUN dotnet ef database update --project ./API-AccessManeger/API-AccessManeger.csproj
+RUN dotnet ef database update --project ./API-AccessManeger/API-AccessManeger.csproj --startup-project ./API-AccessManeger/API-AccessManeger.csproj
 RUN dotnet publish ./API-AccessManeger/API-AccessManeger.csproj -c Release -o /app/publish
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
