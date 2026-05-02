@@ -12,7 +12,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var dbPath = Path.Combine(Directory.GetCurrentDirectory(), "src", "Infrastructure", "Data", "database.db");
+var dbPath = Path.Combine(AppContext.BaseDirectory, "database.db");
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite($"Data Source={dbPath}"));
 
@@ -24,7 +24,7 @@ builder.Services.AddScoped<RegisterUserUseCase>();
 
 var jwtKey = builder.Configuration["Jwt:Key"];
 if (string.IsNullOrWhiteSpace(jwtKey))
-    throw new InvalidOperationException("Config Jwt:Key não encontrada no appsettings.");
+    throw new InvalidOperationException("Config Jwt:Key nï¿½o encontrada no appsettings.");
 
 builder.Services
     .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
