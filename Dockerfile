@@ -3,6 +3,10 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 COPY . .
 
 RUN dotnet restore ./API-AccessManeger/API-AccessManeger.csproj
+
+RUN dotnet tool install --global dotnet-ef
+ENV PATH="$PATH:/root/.dotnet/tools"
+
 RUN dotnet ef database update --project ./API-AccessManeger/API-AccessManeger.csproj --startup-project ./API-AccessManeger/API-AccessManeger.csproj
 RUN dotnet publish ./API-AccessManeger/API-AccessManeger.csproj -c Release -o /app/publish
 
