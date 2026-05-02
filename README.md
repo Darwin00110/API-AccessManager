@@ -67,7 +67,99 @@ Este projeto foi desenvolvido com foco em demonstrar habilidades práticas em ba
 4. Rode o projeto com:
 
 ```bash
+git clone https://github.com/Darwin00110/API-AccessManeger.git
+cd API-AccessManeger/API-AccessManeger
+dotnet restoure
+dotnet ef database update
 dotnet run
+```
+
+```Rotas
+--------Rotas Padrão (SEM AUTH)-----------
+POST https://api-accessmaneger.onrender.com/Users/Register
+{
+  "name": "string",
+  "email": "user@example.com",
+  "password": "string",
+  "telephone": "string",
+  "role": "string"
+}
+OBS: Role so aceita Admin ou User
+
+POST https://api-accessmaneger.onrender.com/Users/login
+{
+  "email": "user@example.com",
+  "password": "string"
+}
+-------------------------------------------------
+
+---------------- Rotas com AUTH -------------------
+OBS: [Todos as requisições presentes aqui é necessario inserir o token de autenticação]
+[que é fornecido apos efetuar um login bem sucedido]
+
+GET https://api-accessmaneger.onrender.com/Users/me
+----
+curl -X GET https://api-accessmaneger.onrender.com/Users/me \
+  -H "Authorization: Bearer SEU_TOKEN_AQUI"
+=================================================
+
+
+PUT https://api-accessmaneger.onrender.com/Users/me
+----
+curl -X PUT https://api-accessmaneger.onrender.com/Users/me \
+  -H "Authorization: Bearer SEU_TOKEN_AQUI"
+=================================================
+{
+  "name": "string",
+  "email": "user@example.com",
+  "password": "string",
+  "role": "string",
+  "telephone": "string"
+}
+=====================================================
+
+DELETE https://api-accessmaneger.onrender.com/Users/me
+----
+curl -X DELETE https://api-accessmaneger.onrender.com/Users/me \
+  -H "Authorization: Bearer SEU_TOKEN_AQUI"
+=================================================
+
+
+
+--------------------------------------------------------------
+
+------------------------Rotas ADM-------------------------------
+GET https://api-accessmaneger.onrender.com/Admin
+----
+curl -X GET https://api-accessmaneger.onrender.com/Admin \
+  -H "Authorization: Bearer SEU_TOKEN_AQUI"
+=================================================
+
+
+PUT https://api-accessmaneger.onrender.com/Admin/{id}
+----
+curl -X PUT https://api-accessmaneger.onrender.com/Admin/{id} \
+  -H "Authorization: Bearer SEU_TOKEN_AQUI"
+=================================================
+{
+  "name": "string",
+  "email": "user@example.com",
+  "password": "string",
+  "role": "string",
+  "telephone": "string"
+}
+
+
+DELETE https://api-accessmaneger.onrender.com/Admin/{id}
+----
+curl -X DELETE https://api-accessmaneger.onrender.com/Admin/{id} \
+  -H "Authorization: Bearer SEU_TOKEN_AQUI"
+=================================================
+
+--------------------------------------------------------------
+
+```
+
 
 👨‍💻 Autor
 
