@@ -3,7 +3,7 @@ WORKDIR ./
 
 COPY . .
 
-RUN dotnet restore ./API_AccessManeger
+RUN dotnet restore ./API-AccessManeger/API-AccessManeger.csproj
 RUN dotnet publish ./API-AccessManeger/API-AccessManeger.csproj -c Release -o /app/publish
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
