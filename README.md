@@ -69,7 +69,7 @@ Este projeto foi desenvolvido com foco em demonstrar habilidades práticas em ba
 ```bash
 git clone https://github.com/Darwin00110/API-AccessManeger.git
 cd API-AccessManeger/API-AccessManeger
-dotnet restoure
+dotnet restore
 dotnet ef database update
 dotnet run
 ```
