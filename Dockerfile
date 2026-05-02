@@ -3,11 +3,9 @@ WORKDIR ./
 
 COPY . .
 
-WORKDIR ./API-AccessManeger
-
-RUN dotnet restore ./API-AccessManeger.csproj
-RUN dotnet ef database update
-RUN dotnet publish ./API-AccessManeger.csproj -c Release -o /app/publish
+RUN dotnet restore ./API-AccessManeger/API-AccessManeger.csproj
+RUN dotnet ef database update --project ./API-AccessManeger/API-AccessManeger.csproj
+RUN dotnet publish ./API-AccessManeger/API-AccessManeger.csproj -c Release -o /app/publish
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
