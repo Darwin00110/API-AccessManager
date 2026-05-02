@@ -7,7 +7,7 @@ RUN dotnet restore
 RUN dotnet publish -c Release -o /app/publish
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
-WORKDIR /app
+WORKDIR /app/API_AccessManeger
 
 COPY --from=build /app/publish .
 
