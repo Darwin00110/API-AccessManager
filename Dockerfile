@@ -1,10 +1,10 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-WORKDIR ./API_AccessManeger
+WORKDIR ./
 
 COPY . .
 
 RUN dotnet restore
-RUN dotnet publish ../API_AccessManeger.csproj -c Release -o /app/publish
+RUN dotnet publish ./API-AccessManeger/API-AccessManeger.csproj -c Release -o /app/publish
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
