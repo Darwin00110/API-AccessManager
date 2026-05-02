@@ -1,7 +1,9 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-WORKDIR ./API-AccessManeger
+WORKDIR ./
 
 COPY . .
+
+WORKDIR ./API-AccessManeger
 
 RUN dotnet restore ./API-AccessManeger.csproj
 RUN dotnet ef database update
